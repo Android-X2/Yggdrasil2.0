@@ -1,0 +1,33 @@
+<%- include('partials/header') -%>
+
+<div class="hero min-h-screen bg-opacity-70" style="background-image: url('/./assets/images/mainTree.jpg');">
+        <div class="hero-overlay bg-opacity-70 ">
+           
+            <div>
+                <div class="text-neutral-content">
+                    <h1 class="text-5xl font-sans py-5 underline underline-offset-2">Current Branches</h1>
+                </div>
+            </div>
+            
+            <div class="">
+                <div class="grid grid-flow-row grid-cols-6 gap-8  max-w-full text-neutral-content " >
+                    <% for(let i=0;i<branches.length;i++){ %> 
+                            <div class="border-2 border-double rounded-lg flex flex-row justify-around">
+                                    <div class="">
+                                            <div class="text-2xl font-sans py-5 underline underline-offset-2">
+                                                <% if(branches[i].title.length>13) { %>
+                                                    <a href="/profile/branch/<%= branches[i]._id %> "><%= branches[i].title.slice(0,11)+'...' %> </a>
+                                                <%}else {%>
+                                                    <a href="/profile/branch/<%= branches[i]._id %>" ><%= branches[i].title %></a>
+                                                <% } %>
+                                            </div>
+                                    </div>
+                                    
+                            </div>
+                    <%} %>
+                </div>
+                
+            </div>
+      </div> 
+ </div>
+<%- include('partials/footer') -%>

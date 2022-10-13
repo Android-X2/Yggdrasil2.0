@@ -1,0 +1,67 @@
+<%- include('partials/header') -%>
+
+<div class="hero min-h-screen bg-opacity-70" style="background-image: url('/./assets/images/mainTree.jpg');">
+        <div class="hero-overlay bg-opacity-70 ">
+            <div class="flex flex-col items-center  text-neutral-content">
+                <div>
+                    <h1 class="text-5xl font-sans py-5 underline underline-offset-2">Add A Leaf</h1>
+                </div>
+                <div class="text-neutral-content">
+                    <form action="/leaves/addLeaves/<%= branches._id %>" method="POST" class="">
+                        <div class="">
+                            <div class="input-field text-black">
+                                <label for="title"></label>
+                                <input type="text-black" placeholder="Title" name="title" id="title" class=" input input-bordered input-primary w-full max-w-xs" />
+                            </div>
+                            <div class="input-field text-black">
+                                <label for="link"></label>
+                                <input type="text-black" placeholder="Link" name="link" id="link" class=" input input-bordered input-primary w-full max-w-xs" />
+                            </div>
+                        </div>
+                        <div class="flex flex-row justify-around mt-1">
+                            <div class="w-1/2">
+                                <input type="submit" value="Save" class="btn btn-secondary w-full">
+                            </div>
+                            <div class="w-1/2">
+                                <a href="/dashboard" class="btn btn-secondary w-full">Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> 
+            <div>
+                <div class="text-neutral-content">
+                    <h1 class="text-5xl font-sans py-5 underline underline-offset-2">Current Leaves in <%= branches.title %></h1>
+                </div>
+            </div>
+            
+            <div class="">
+                <div class="grid grid-flow-row grid-cols-6 gap-8  max-w-full text-neutral-content " >
+                    <% for(let i=0;i<leaves.length;i++){ %> 
+                        <% if(branches._id.toString()=== leaves[i].branch.toString()) { %>
+                            <div class="border-2 border-double rounded-lg flex flex-row justify-around">
+                                    <div class="">
+                                            <div class="text-2xl font-sans py-5 underline underline-offset-2">
+                                                <% if(leaves[i].title.length>13) { %>
+                                                    <a href="<%= leaves[i].link %>" target="_blank"><%= leaves[i].title.slice(0,11)+'...' %></a>
+                                                <%}else {%>
+                                                    <a href="<%= leaves[i].link %>" target="_blank"><%= leaves[i].title %></a>
+                                                <% } %>
+                                            </div>
+                                    </div>
+                                    <div class=" self-center">
+                                        <form
+                                        action="/leaves/deleteLeaves/<%= leaves[i]._id%>?_method=DELETE"
+                                        method="POST"
+                                        class="">
+                                        <button class=" btn btn-primary fa fa-trash" type="submit"></button>
+                                        </form>       
+                                    </div>  
+                            </div>
+                        <% } %>
+                    <%} %>
+            </div>
+            </div>
+      </div> 
+ </div>
+<%- include('partials/footer') -%>
