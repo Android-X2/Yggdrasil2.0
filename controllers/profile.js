@@ -12,6 +12,7 @@ getProfile: async(req,res)=>{
     res.render('./profile/profile',{branches:branch, leaves:leaves,user:user})
   } catch (err) {
     console.log(err)
+    res.render('error/500')
   }
 },
 getAllBranches: async(req,res) => {
@@ -23,6 +24,7 @@ getAllBranches: async(req,res) => {
     res.render('./profile/allBranches',{branches:branch, leaves:leaves, user:user})
   } catch (err) {
     console.log(err)
+    res.render('error/500')
   }
 },
 getBranch:async(req,res) => {
@@ -33,7 +35,7 @@ getBranch:async(req,res) => {
     res.render('./profile/branch',{branches:branch, leaves:leaves,user:user})
   } catch (err) {
     console.log(err)
-    
+    res.render('error/500')
   }
 }
 }

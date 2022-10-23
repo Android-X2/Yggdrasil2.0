@@ -15,6 +15,7 @@ module.exports = {
             res.redirect(req.get('referer'))
         } catch (err) {
             console.log(err)
+            res.render('error/500')
         }
     },
     deleteBranch: async (req,res)=>{
@@ -26,7 +27,7 @@ module.exports = {
           res.redirect(req.get('referer'))
         }catch(err){
             console.log(err)
-            // res.render('error/500')
+            res.render('error/500')
         }
       },
 

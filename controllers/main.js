@@ -15,7 +15,7 @@ getDashboard: async (req,res) =>{
       res.render('dashboard.ejs', {branches:branch, leaves:leaves, user:req.user })
     } catch (err) {
       console.log(err)
-      // res.render('error/404')
+      res.render('error/500')
     }
     
   },
