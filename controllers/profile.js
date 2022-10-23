@@ -37,5 +37,8 @@ getBranch:async(req,res) => {
     console.log(err)
     res.render('error/500')
   }
+},
+getAbout: (req,res)=>{
+  res.render('./profile/aboutProfile')
 }
 }
