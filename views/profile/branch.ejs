@@ -9,25 +9,45 @@
                     <h1 class="text-5xl font-sans py-5 underline underline-offset-2">Current Leaves in <%= branches.title %></h1>
                 </div>
             </div>
-            
             <div class="">
                 <div class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8  max-w-full text-neutral-content" >
                     <% for(let i=0;i<leaves.length;i++){ %> 
                         <% if(branches._id.toString()=== leaves[i].branch.toString()) { %>
-                            <div class="border-2 border-double rounded-lg flex flex-row justify-around">
+                            <!-- <div class="border-2 border-double rounded-lg flex flex-row justify-around">
                                     <div class="">
                                             <div class="text-2xl font-sans py-5 underline underline-offset-2">
                                                 <% if(leaves[i].title.length>13) { %>
-                                                    <a href="<%= leaves[i].link %>" target="_blank"><%= leaves[i].title.slice(0,11)+'...' %></a>
+                                                    <a href="<%= leaves[i].link %>" target="_blank" ><%= leaves[i].title.slice(0,11)+'...' %></a>                     
                                                 <%}else {%>
                                                     <a href="<%= leaves[i].link %>" target="_blank"><%= leaves[i].title %></a>
                                                 <% } %>
                                             </div>
                                     </div>
+                                </div> -->
+
+                            <div class="dropdown dropdown-hover">
+                                <div class="border-2 border-double rounded-lg flex flex-row justify-around" tabindex="0">
+                                    <div class="">
+                                        <div class="text-2xl font-sans py-5 underline underline-offset-2">
+                                            <% if(leaves[i].title.length>13) { %>
+                                                <a href="<%= leaves[i].link %>" target="_blank" ><%= leaves[i].title.slice(0,11)+'...' %></a>                     
+                                            <%}else {%>
+                                                <a href="<%= leaves[i].link %>" target="_blank"><%= leaves[i].title %></a>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <div class="text-2xl font-sans py-5 underline underline-offset-2 text-black">
+                                            <a ><%= leaves[i].title %></a>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         <% } %>
                     <%} %>
-            </div>
+                </div>
             </div>
       </div> 
  </div>
