@@ -72,5 +72,5 @@ app.use('/profile',profileRoutes)
 
 //Turns on the server and console logs if it is running and what PORT
 app.listen(process.env.PORT, ()=>{
-    console.log(`Server is running ${process.env.NODE_ENV} mode on ${process.env.PORT}`)
+    console.log(`Server is running ${process.env.NODE_ENV}`)
 })
