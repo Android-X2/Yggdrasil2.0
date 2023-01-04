@@ -10,9 +10,11 @@ getIndex: (req, res) => {
 getDashboard: async (req,res) =>{
     try {
       const user=req.user
+      const image = user.image
+      console.log(user.image)
       const branch = await Branch.find({user:user._id}).lean()
       const leaves = await Leaves.find().sort({createdAt:'asc'}).lean();
-      res.render('dashboard.ejs', {branches:branch, leaves:leaves, user:req.user })
+      res.render('dashboard.ejs', {branches:branch, leaves:leaves, user:req.user, image:image })
     } catch (err) {
       console.log(err)
       res.render('error/500')
