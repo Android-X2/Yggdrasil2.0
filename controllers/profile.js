@@ -8,8 +8,9 @@ getProfile: async(req,res)=>{
   const branch = await Branch.find({user:req.params.id}).lean();
   const leaves = await Leaves.find().sort({createdAt:'asc'}).lean();
   const user = await User.findById(req.params.id).lean()
+  const image = user.image
   try {
-    res.render('./profile/profile',{branches:branch, leaves:leaves,user:user})
+    res.render('./profile/profile',{branches:branch, leaves:leaves,user:user, image:image})
   } catch (err) {
     console.log(err)
     res.render('error/500')
