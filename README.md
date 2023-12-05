@@ -25,9 +25,9 @@ To run this project locally, follow these steps:
     ```bash
     $ git clone https://github.com/Android-X2/Yggdrasil2.0.git
     ```
-2. npm init in both the server and client files to down load the node_modules
+2. npm init in the main file
 
-3. Create two different bashes to run the backend and frontend of the application
+3. Simply run npm run start to start it up. And start tinkering!
 
 4. Have fun! :D
 
