@@ -2,7 +2,7 @@
 
 https://yggdrasil.onrender.com/
 
-A simple web application made to track your moods and emotions through out the week for the whole year. 
+A simple web application made to tabulate the links you want to share with the world. 
 
 ## Table of Contents
 
